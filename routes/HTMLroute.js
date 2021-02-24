@@ -1,7 +1,7 @@
   
 const path = require("path");
 
-pathsGet = (app) =>{
+pathsGet = (app) => {
     
     // Route for notes page
     app.get("/notes", (req, res) => {
