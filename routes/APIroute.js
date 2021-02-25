@@ -1,5 +1,6 @@
 const fs = require("fs");
 const noteData = require("../db/db.json");
+const { v4: uuidv4 } = require("uuid");
 
 dataGet = (app) => {
 
@@ -21,18 +22,19 @@ dataGet = (app) => {
 
     app.post("/api/notes", (req, res) => {
 
-        if (noteData.length = 0){
-            req.body.id = "0";
-        } else{
-            req.body.id = JSON.stringify(JSON.parse(noteData[noteData.length - 1].id) + 1);
-        }
-        
+        req.body.id = uuidv4();
+
         noteData.push(req.body);
 
         saveToDb(noteData);
+
         console.log(noteData);
-        
+
         res.json(req.body);
+    });
+
+    app.delete("/api/notes", (req, res) => {
+        
     });
 
 };
