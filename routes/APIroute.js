@@ -34,16 +34,16 @@ dataGet = (app) => {
     });
 
     app.delete("/api/notes", (req, res) => {
-        
-        id = req.params.id
+
+        id = req.params.id.toString()
 
         for (i=0; i < noteData.length; i++){
            
             if (noteData[i].id == id){
 
-                res.send(notesData[i]);
+                res.send(noteData[i]);
 
-                // Removes the deleted note
+                
                 noteData.splice(i,1);
                 break;
             }
