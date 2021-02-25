@@ -28,9 +28,8 @@
 </ul>
 
 ### Usage:
-<ul>
-    gif
-</ul>
+
+![demo](/images/example.gif)
 
 ### License
 <ul>
