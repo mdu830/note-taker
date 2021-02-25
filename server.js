@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-// require("./routes/APIroute")(app);
+require("./routes/APIroute")(app);
 require("./routes/HTMLroute")(app);
 
 app.use(express.static("public"));
