@@ -43,7 +43,7 @@ dataGet = (app) => {
 
                 res.send(noteData[i]);
 
-                
+                // Removes the deleted note
                 noteData.splice(i,1);
                 break;
             }
