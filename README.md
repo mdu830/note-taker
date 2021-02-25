@@ -23,8 +23,12 @@
 ### Installation:
 <ul>
     1. install node js 
-    2. cd into Note-Taker directory
-    3. npm install and that is it!
+</ul>
+<ul>
+    3. cd into Note-Taker directory
+</ul>
+<ul>
+    5. npm install and that is it!
 </ul>
 
 ### Usage:
