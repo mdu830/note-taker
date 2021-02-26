@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 
 dataGet = (app) => {
 
-
+    
     function saveToDb(notes){
     
         notes = JSON.stringify(notes);
@@ -14,12 +14,12 @@ dataGet = (app) => {
             }
         });
     }
-
+    // get 
     app.get("/api/notes", (req, res) => {
         res.json(noteData);
         
     });
-
+    // post
     app.post("/api/notes", (req, res) => {
 
         req.body.id = uuidv4();
@@ -32,23 +32,35 @@ dataGet = (app) => {
 
         res.json(req.body);
     });
-
+    // delete (currently not working)
     app.delete("/api/notes", (req, res) => {
 
-        id = req.params.id.toString()
+        const id = req.params.id
 
-        for (i=0; i < noteData.length; i++){
-           
-            if (noteData[i].id == id){
+        const noteId = req.params.id.remove({ _id: id });
 
-                res.send(noteData[i]);
-
-                // Removes the deleted note
-                noteData.splice(i,1);
-                break;
-            }
-        }
-
+        Promise.all([]).then(result => {
+            
+        })
+        // router.delete("/:familyId", (req, res, next) => {
+        //     const id = req.params.familyId;
+        
+        //     const family = Family.remove({ _id: id });
+        //     const root = Root.remove({ familyId: id });
+        //     const child = Child.remove({ familyId: id });
+        
+        //     Promise.all([family, root, child]).then(result => {
+        //         console.log(result);
+        //         res.status(200).json({
+        //             message: 'deleted',
+        //         });
+        //     }).catch(err => {
+        //         console.error(err);
+        //         res.status(500).json({
+        //             error: err
+        //         });
+        //     });
+        // }); 
         saveToDB(notesData);
     });
 
