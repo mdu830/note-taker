@@ -33,35 +33,21 @@ dataGet = (app) => {
         res.json(req.body);
     });
     // delete (currently not working)
-    app.delete("/api/notes", (req, res) => {
+    app.delete("/api/notes/:id", (req, res) => {
 
-        const id = req.params.id
-
-        const noteId = req.params.id.remove({ _id: id });
-
-        Promise.all([]).then(result => {
-            
-        })
-        // router.delete("/:familyId", (req, res, next) => {
-        //     const id = req.params.familyId;
         
-        //     const family = Family.remove({ _id: id });
-        //     const root = Root.remove({ familyId: id });
-        //     const child = Child.remove({ familyId: id });
-        
-        //     Promise.all([family, root, child]).then(result => {
-        //         console.log(result);
-        //         res.status(200).json({
-        //             message: 'deleted',
-        //         });
-        //     }).catch(err => {
-        //         console.error(err);
-        //         res.status(500).json({
-        //             error: err
-        //         });
-        //     });
-        // }); 
-        saveToDB(notesData);
+
+        for (i=0; i < noteData.length; i++){
+           
+            if (noteData[i].id == req.params.id){
+
+                noteData.splice(i,1);
+                break;
+            }
+        }
+
+        saveToDb(noteData);
+        res.json({ok: true});
     });
 
 };
