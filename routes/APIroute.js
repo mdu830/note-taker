@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 
 dataGet = (app) => {
 
-    
+    // save to database function
     function saveToDb(notes){
     
         notes = JSON.stringify(notes);
@@ -32,7 +32,7 @@ dataGet = (app) => {
 
         res.json(req.body);
     });
-    // delete (currently not working)
+    // delete
     app.delete("/api/notes/:id", (req, res) => {
 
         
